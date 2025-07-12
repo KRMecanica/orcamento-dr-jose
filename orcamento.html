@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposta de Sistema Financeiro | Dr. José</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0D2C54',
+                        secondary: '#164B8A',
+                        accent: '#F2AE30',
+                        dark: '#212529',
+                        light: '#495057',
+                        background: '#F8F9FA',
+                        surface: '#FFFFFF',
+                        border: '#DEE2E6',
+                    },
+                    fontFamily: {
+                        heading: ['Playfair Display', 'serif'],
+                        body: ['Montserrat', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'soft': '0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03)',
+                        'medium': '0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.03)',
+                        'hard': '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+                    },
+                    borderRadius: {
+                        'xl': '12px',
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/css">
+        body {
+            background-color: #F8F9FA;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .highlight-box {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .highlight-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background-color: #164B8A;
+        }
+        
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            margin-bottom: 16px;
+        }
+        
+        .print-hidden {
+            display: block;
+        }
+        
+        @media print {
+            .print-hidden {
+                display: none !important;
+            }
+            body {
+                background-color: white !important;
+                font-size: 12pt !important;
+            }
+            .page-container {
+                box-shadow: none !important;
+                margin: 0 !important;
+                max-width: 100% !important;
+                border-radius: 0 !important;
+            }
+            .document-footer {
+                background-color: #f1f1f1 !important;
+                color: #212529 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body class="font-body text-light bg-background">
+    <!-- Floating Action Button -->
+    <div class="print-hidden fixed bottom-6 right-6 z-50">
+        <button onclick="window.print()" class="bg-accent hover:bg-yellow-500 text-white rounded-full p-4 shadow-hard transition-all duration-300 transform hover:scale-110">
+            <i class="fas fa-print text-xl"></i>
+        </button>
+    </div>
+
+    <!-- Main Container -->
+    <div class="max-w-6xl mx-auto my-8 px-4 sm:px-6 lg:px-8 fade-in">
+        <div class="bg-surface rounded-2xl shadow-hard overflow-hidden">
+            <!-- Document Header -->
+            <header class="px-8 py-10 border-b border-border">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-6">
+                    <div>
+                        <h1 class="font-heading text-4xl md:text-5xl font-bold text-primary mb-2">Proposta de Sistema de Gestão Financeira</h1>
+                        <p class="text-secondary text-lg">Solução completa para gestão de devedores e recebíveis</p>
+                    </div>
+                    <div class="mt-4 md:mt-0 bg-primary text-white px-4 py-2 rounded-lg shadow-medium">
+                        <p class="font-bold">Status: <span class="font-normal">Orçamento</span></p>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center bg-background px-6 py-4 rounded-lg">
+                    <div class="mb-2 sm:mb-0">
+                        <p class="font-bold text-dark"><i class="fas fa-user-tie text-accent mr-2"></i> Para: <span class="font-normal">Dr. José</span></p>
+                    </div>
+                    <div class="mb-2 sm:mb-0">
+                        <p class="font-bold text-dark"><i class="fas fa-calendar-alt text-accent mr-2"></i> Data: <span class="font-normal">12 de julho de 2025</span></p>
+                    </div>
+                </div>
+            </header>
+
+            <main>
+                <!-- Section 1: Gestão de Devedores -->
+                <section class="px-8 py-10 border-b border-border">
+                    <div class="flex flex-col lg:flex-row gap-8">
+                        <div class="lg:w-1/4">
+                            <h2 class="font-heading text-2xl font-bold text-secondary mb-4 flex items-center">
+                                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center mr-3">1</span>
+                                Gestão de Devedores
+                            </h2>
+                            <p class="text-light">Plataforma centralizada para controle completo de recebíveis, automatizando cálculos e otimizando o acompanhamento.</p>
+                        </div>
+                        
+                        <div class="lg:w-3/4">
+                            <div class="overflow-x-auto">
+                                <table class="min-w-full divide-y divide-border">
+                                    <thead class="bg-background">
+                                        <tr>
+                                            <th class="px-6 py-3 text-left text-xs font-bold text-dark uppercase tracking-wider">Recurso Principal</th>
+                                            <th class="px-6 py-3 text-left text-xs font-bold text-dark uppercase tracking-wider">Descrição Detalhada</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-border">
+                                        <tr class="hover:bg-background transition-colors">
+                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                <div class="flex items-center">
+                                                    <div class="flex-shrink-0 h-10 w-10 bg-accent/10 rounded-full flex items-center justify-center text-accent mr-3">
+                                                        <i class="fas fa-user-plus"></i>
+                                                    </div>
+                                                    <div class="font-medium text-dark">Cadastro Estruturado</div>
+                                                </div>
+                                            </td>
+                                            <td class="px-6 py-4">Registre devedores, valores de dívida, datas e contatos de forma organizada.</td>
+                                        </tr>
+                                        <tr class="hover:bg-background transition-colors">
+                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                <div class="flex items-center">
+                                                    <div class="flex-shrink-0 h-10 w-10 bg-accent/10 rounded-full flex items-center justify-center text-accent mr-3">
+                                                        <i class="fas fa-percentage"></i>
+                                                    </div>
+                                                    <div class="font-medium text-dark">Juros Automatizados</div>
+                                                </div>
+                                            </td>
+                                            <td class="px-6 py-4">Defina taxas de juros e o sistema recalcula o saldo devedor em tempo real.</td>
+                                        </tr>
+                                        <tr class="hover:bg-background transition-colors">
+                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                <div class="flex items-center">
+                                                    <div class="flex-shrink-0 h-10 w-10 bg-accent/10 rounded-full flex items-center justify-center text-accent mr-3">
+                                                        <i class="fas fa-history"></i>
+                                                    </div>
+                                                    <div class="font-medium text-dark">Histórico de Pagamentos</div>
+                                                </div>
+                                            </td>
+                                            <td class="px-6 py-4">Lance pagamentos parciais ou totais e mantenha um histórico preciso de transações.</td>
+                                        </tr>
+                                        <tr class="hover:bg-background transition-colors">
+                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                <div class="flex items-center">
+                                                    <div class="flex-shrink-0 h-10 w-10 bg-accent/10 rounded-full flex items-center justify-center text-accent mr-3">
+                                                        <i class="fas fa-search"></i>
+                                                    </div>
+                                                    <div class="font-medium text-dark">Busca Inteligente</div>
+                                                </div>
+                                            </td>
+                                            <td class="px-6 py-4">Localize devedores por nome, status ou valor da dívida com filtros avançados.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                            <div class="highlight-box bg-blue-50 p-6 mt-8 rounded-lg">
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0 bg-accent/10 p-2 rounded-full mr-4">
+                                        <i class="fas fa-lightbulb text-accent text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-dark mb-2">Cenário de Uso:</h4>
+                                        <p>Uma dívida de <span class="font-bold">R$ 50.000</span> com juros de <span class="font-bold">10% (R$ 5.000)</span> totaliza <span class="font-bold">R$ 55.000</span>. Após um pagamento de <span class="font-bold">R$ 20.000</span>, o saldo é automaticamente atualizado para <span class="font-bold text-primary">R$ 35.000</span>.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section 2: Dashboards e Análises -->
+                <section class="px-8 py-10 border-b border-border">
+                    <div class="flex flex-col lg:flex-row gap-8">
+                        <div class="lg:w-1/4">
+                            <h2 class="font-heading text-2xl font-bold text-secondary mb-4 flex items-center">
+                                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center mr-3">2</span>
+                                Dashboards e Análises
+                            </h2>
+                            <p class="text-light">Painéis visuais que transformam dados brutos em inteligência de negócio para tomada de decisões estratégicas.</p>
+                        </div>
+                        
+                        <div class="lg:w-3/4">
+                            <h3 class="font-heading text-xl font-bold text-dark mb-4">Métricas Chave</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                                <div class="bg-background p-6 rounded-xl border border-border hover:shadow-medium transition-shadow">
+                                    <div class="flex items-center mb-3">
+                                        <div class="bg-green-100 p-2 rounded-lg mr-3">
+                                            <i class="fas fa-wallet text-green-600"></i>
+                                        </div>
+                                        <h4 class="font-bold text-dark">Saldo Devedor Total</h4>
+                                    </div>
+                                    <p class="text-sm">Soma de todas as dívidas ativas em seu valor atualizado.</p>
+                                </div>
+                                <div class="bg-background p-6 rounded-xl border border-border hover:shadow-medium transition-shadow">
+                                    <div class="flex items-center mb-3">
+                                        <div class="bg-blue-100 p-2 rounded-lg mr-3">
+                                            <i class="fas fa-chart-line text-blue-600"></i>
+                                        </div>
+                                        <h4 class="font-bold text-dark">Lucro Potencial (Juros)</h4>
+                                    </div>
+                                    <p class="text-sm">Valor total de juros acumulados a receber.</p>
+                                </div>
+                                <div class="bg-background p-6 rounded-xl border border-border hover:shadow-medium transition-shadow">
+                                    <div class="flex items-center mb-3">
+                                        <div class="bg-purple-100 p-2 rounded-lg mr-3">
+                                            <i class="fas fa-users text-purple-600"></i>
+                                        </div>
+                                        <h4 class="font-bold text-dark">Devedores Ativos</h4>
+                                    </div>
+                                    <p class="text-sm">Quantidade de clientes com saldo pendente.</p>
+                                </div>
+                            </div>
+                            
+                            <h3 class="font-heading text-xl font-bold text-dark mb-4">Gráficos Disponíveis</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="bg-surface border border-border rounded-xl p-6 hover:shadow-medium transition-shadow">
+                                    <div class="flex items-center mb-3">
+                                        <div class="bg-accent/10 p-2 rounded-lg mr-3">
+                                            <i class="fas fa-chart-bar text-accent"></i>
+                                        </div>
+                                        <h4 class="font-bold text-dark">Evolução de Pagamentos</h4>
+                                    </div>
+                                    <p class="text-sm">Visualize a evolução mensal de pagamentos recebidos.</p>
+                                </div>
+                                <div class="bg-surface border border-border rounded-xl p-6 hover:shadow-medium transition-shadow">
+                                    <div class="flex items-center mb-3">
+                                        <div class="bg-accent/10 p-2 rounded-lg mr-3">
+                                            <i class="fas fa-pie-chart text-accent"></i>
+                                        </div>
+                                        <h4 class="font-bold text-dark">Composição da Dívida</h4>
+                                    </div>
+                                    <p class="text-sm">Distribuição entre valor principal e juros acumulados.</p>
+                                </div>
+                                <div class="bg-surface border border-border rounded-xl p-6 hover:shadow-medium transition-shadow">
+                                    <div class="flex items-center mb-3">
+                                        <div class="bg-accent/10 p-2 rounded-lg mr-3">
+                                            <i class="fas fa-calendar-alt text-accent"></i>
+                                        </div>
+                                        <h4 class="font-bold text-dark">Juros por Período</h4>
+                                    </div>
+                                    <p class="text-sm">Visualização dos juros aplicados em cada período.</p>
+                                </div>
+                                <div class="bg-surface border border-border rounded-xl p-6 hover:shadow-medium transition-shadow">
+                                    <div class="flex items-center mb-3">
+                                        <div class="bg-accent/10 p-2 rounded-lg mr-3">
+                                            <i class="fas fa-trophy text-accent"></i>
+                                        </div>
+                                        <h4 class="font-bold text-dark">Top 5 Devedores</h4>
+                                    </div>
+                                    <p class="text-sm">Ranking dos maiores devedores por valor atual.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section 3: Conciliação e Importação -->
+                <section class="px-8 py-10 border-b border-border">
+                    <div class="flex flex-col lg:flex-row gap-8">
+                        <div class="lg:w-1/4">
+                            <h2 class="font-heading text-2xl font-bold text-secondary mb-4 flex items-center">
+                                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center mr-3">3</span>
+                                Conciliação e Importação
+                            </h2>
+                            <p class="text-light">Automatize a conferência de extratos bancários e planilhas, eliminando erros manuais.</p>
+                        </div>
+                        
+                        <div class="lg:w-3/4">
+                            <div class="overflow-x-auto">
+                                <table class="min-w-full divide-y divide-border">
+                                    <thead class="bg-background">
+                                        <tr>
+                                            <th class="px-6 py-3 text-left text-xs font-bold text-dark uppercase tracking-wider">Recurso</th>
+                                            <th class="px-6 py-3 text-left text-xs font-bold text-dark uppercase tracking-wider">Descrição</th>
+                                            <th class="px-6 py-3 text-left text-xs font-bold text-dark uppercase tracking-wider">Benefício</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-border">
+                                        <tr class="hover:bg-background transition-colors">
+                                            <td class="px-6 py-4 whitespace-nowrap font-medium text-dark">Importação Flexível</td>
+                                            <td class="px-6 py-4">Suporte nativo para arquivos de extrato (.ofx) e planilhas (.csv, .xlsx)</td>
+                                            <td class="px-6 py-4"><span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">Economia de tempo</span></td>
+                                        </tr>
+                                        <tr class="hover:bg-background transition-colors">
+                                            <td class="px-6 py-4 whitespace-nowrap font-medium text-dark">Conciliação Automática</td>
+                                            <td class="px-6 py-4">Identificação inteligente de pagamentos e pendências</td>
+                                            <td class="px-6 py-4"><span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">Redução de erros</span></td>
+                                        </tr>
+                                        <tr class="hover:bg-background transition-colors">
+                                            <td class="px-6 py-4 whitespace-nowrap font-medium text-dark">Histórico de Conciliações</td>
+                                            <td class="px-6 py-4">Arquivo de todas as conferências realizadas, com filtros por período</td>
+                                            <td class="px-6 py-4"><span class="bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded">Auditoria facilitada</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                            <div class="mt-8 bg-gradient-to-r from-primary to-secondary p-6 rounded-xl text-white">
+                                <div class="flex flex-col md:flex-row items-center">
+                                    <div class="mb-4 md:mb-0 md:mr-6">
+                                        <i class="fas fa-file-export text-4xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-xl mb-2">Guia de Conversão de Extratos</h4>
+                                        <p>Incluímos um manual completo com instruções para converter extratos de qualquer banco para o formato OFX compatível com nosso sistema.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section 4: Segurança e Controle de Acesso -->
+                <section class="px-8 py-10 border-b border-border">
+                    <div class="flex flex-col lg:flex-row gap-8">
+                        <div class="lg:w-1/4">
+                            <h2 class="font-heading text-2xl font-bold text-secondary mb-4 flex items-center">
+                                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center mr-3">4</span>
+                                Segurança e Controle
+                            </h2>
+                            <p class="text-light">Múltiplas camadas de proteção para garantir a confidencialidade e integridade dos dados.</p>
+                        </div>
+                        
+                        <div class="lg:w-3/4">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="bg-surface border border-border rounded-xl p-6 hover:shadow-medium transition-shadow">
+                                    <div class="flex items-center mb-3">
+                                        <div class="bg-red-100 p-2 rounded-lg mr-3">
+                                            <i class="fas fa-user-shield text-red-600"></i>
+                                        </div>
+                                        <h4 class="font-bold text-dark">Acesso Restrito</h4>
+                                    </div>
+                                    <p class="text-sm">Apenas o administrador cria e gerencia usuários. Não há tela de registro pública.</p>
+                                </div>
+                                <div class="bg-surface border border-border rounded-xl p-6 hover:shadow-medium transition-shadow">
+                                    <div class="flex items-center mb-3">
+                                        <div class="bg-green-100 p-2 rounded-lg mr-3">
+                                            <i class="fas fa-lock text-green-600"></i>
+                                        </div>
+                                        <h4 class="font-bold text-dark">Criptografia Total</h4>
+                                    </div>
+                                    <p class="text-sm">Todos os dados sensíveis são armazenados de forma criptografada.</p>
+                                </div>
+                                <div class="bg-surface border border-border rounded-xl p-6 hover:shadow-medium transition-shadow">
+                                    <div class="flex items-center mb-3">
+                                        <div class="bg-blue-100 p-2 rounded-lg mr-3">
+                                            <i class="fas fa-history text-blue-600"></i>
+                                        </div>
+                                        <h4 class="font-bold text-dark">Log de Atividades</h4>
+                                    </div>
+                                    <p class="text-sm">Registro completo de todas as ações realizadas no sistema.</p>
+                                </div>
+                                <div class="bg-surface border border-border rounded-xl p-6 hover:shadow-medium transition-shadow">
+                                    <div class="flex items-center mb-3">
+                                        <div class="bg-purple-100 p-2 rounded-lg mr-3">
+                                            <i class="fas fa-cloud-upload-alt text-purple-600"></i>
+                                        </div>
+                                        <h4 class="font-bold text-dark">Backups Automáticos</h4>
+                                    </div>
+                                    <p class="text-sm">Cópias diárias dos dados em servidores seguros e redundantes.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section 5: Investimento e Condições -->
+                <section class="px-8 py-10">
+                    <div class="flex flex-col lg:flex-row gap-8">
+                        <div class="lg:w-1/4">
+                            <h2 class="font-heading text-2xl font-bold text-secondary mb-4 flex items-center">
+                                <span class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center mr-3">5</span>
+                                Investimento
+                            </h2>
+                            <p class="text-light">Estrutura transparente que cobre implementação, treinamento e manutenção contínua.</p>
+                        </div>
+                        
+                        <div class="lg:w-3/4">
+                            <h3 class="font-heading text-xl font-bold text-dark mb-4">Detalhamento de Valores</h3>
+                            <div class="overflow-x-auto mb-8">
+                                <table class="min-w-full divide-y divide-border">
+                                    <thead class="bg-background">
+                                        <tr>
+                                            <th class="px-6 py-3 text-left text-xs font-bold text-dark uppercase tracking-wider">Descrição</th>
+                                            <th class="px-6 py-3 text-left text-xs font-bold text-dark uppercase tracking-wider">Valor</th>
+                                            <th class="px-6 py-3 text-left text-xs font-bold text-dark uppercase tracking-wider">Periodicidade</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-border">
+                                        <tr class="hover:bg-background transition-colors">
+                                            <td class="px-6 py-4 whitespace-nowrap font-medium text-dark">Taxa de Implantação e Treinamento</td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-primary font-bold">R$ 600,00</td>
+                                            <td class="px-6 py-4 whitespace-nowrap">Pagamento único no 1º mês</td>
+                                        </tr>
+                                        <tr class="hover:bg-background transition-colors">
+                                            <td class="px-6 py-4 whitespace-nowrap font-medium text-dark">Manutenção e Suporte Mensal</td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-primary font-bold">R$ 450,00</td>
+                                            <td class="px-6 py-4 whitespace-nowrap">A partir do 2º mês</td>
+                                        </tr>
+                                        <tr class="hover:bg-background transition-colors">
+                                            <td class="px-6 py-4 whitespace-nowrap font-medium text-dark">Infraestrutura e Servidores</td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-primary font-bold">R$ 100,00</td>
+                                            <td class="px-6 py-4 whitespace-nowrap">Recorrente mensal</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                            <div class="highlight-box bg-blue-50 p-6 rounded-lg mb-8">
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0 bg-accent/10 p-2 rounded-full mr-4">
+                                        <i class="fas fa-check-circle text-accent text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-dark mb-2">Serviços Inclusos no Plano Mensal:</h4>
+                                        <ul class="list-disc pl-5 space-y-1">
+                                            <li>Suporte técnico prioritário via e-mail e WhatsApp</li>
+                                            <li>Backups diários automatizados</li>
+                                            <li>Treinamento da equipe (até 3 usuários)</li>
+                                            <li>Acesso multiusuário com perfis diferenciados</li>
+                                            <li>Desenvolvimento de novas funcionalidades de baixa complexidade</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        // Simple animation on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('section');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in');
+                    }
+                });
+            }, {threshold: 0.1});
+            
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
