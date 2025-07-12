@@ -78,14 +78,8 @@
             margin-bottom: 16px;
         }
         
-        .print-hidden {
-            display: block;
-        }
-        
+        /* Estilos de impressão mantidos para impressão nativa do navegador (Ctrl+P) */
         @media print {
-            .print-hidden {
-                display: none !important;
-            }
             body {
                 background-color: white !important;
                 font-size: 12pt !important;
@@ -106,41 +100,32 @@
     </style>
 </head>
 <body class="font-body text-light bg-background">
-    <!-- Floating Action Button -->
-    <div class="print-hidden fixed bottom-6 right-6 z-50">
-        <button onclick="window.print()" class="bg-accent hover:bg-yellow-500 text-white rounded-full p-4 shadow-hard transition-all duration-300 transform hover:scale-110">
-            <i class="fas fa-print text-xl"></i>
-        </button>
-    </div>
 
-    <!-- Main Container -->
-    <div class="max-w-6xl mx-auto my-8 px-4 sm:px-6 lg:px-8 fade-in">
+    <div class="max-w-6xl mx-auto my-6 md:my-8 px-4 sm:px-6 lg:px-8 fade-in page-container">
         <div class="bg-surface rounded-2xl shadow-hard overflow-hidden">
-            <!-- Document Header -->
-            <header class="px-8 py-10 border-b border-border">
+            <header class="px-6 sm:px-8 py-10 border-b border-border">
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-6">
                     <div>
-                        <h1 class="font-heading text-4xl md:text-5xl font-bold text-primary mb-2">Proposta de Sistema de Gestão Financeira</h1>
+                        <h1 class="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-primary mb-2">Proposta de Sistema de Gestão Financeira</h1>
                         <p class="text-secondary text-lg">Solução completa para gestão de devedores e recebíveis</p>
                     </div>
-                    <div class="mt-4 md:mt-0 bg-primary text-white px-4 py-2 rounded-lg shadow-medium">
+                    <div class="mt-4 md:mt-0 bg-primary text-white px-4 py-2 rounded-lg shadow-medium self-start">
                         <p class="font-bold">Status: <span class="font-normal">Orçamento</span></p>
                     </div>
                 </div>
                 
                 <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center bg-background px-6 py-4 rounded-lg">
-                    <div class="mb-2 sm:mb-0">
+                    <div class="mb-3 sm:mb-0">
                         <p class="font-bold text-dark"><i class="fas fa-user-tie text-accent mr-2"></i> Para: <span class="font-normal">Dr. José</span></p>
                     </div>
-                    <div class="mb-2 sm:mb-0">
+                    <div>
                         <p class="font-bold text-dark"><i class="fas fa-calendar-alt text-accent mr-2"></i> Data: <span class="font-normal">12 de julho de 2025</span></p>
                     </div>
                 </div>
             </header>
 
             <main>
-                <!-- Section 1: Gestão de Devedores -->
-                <section class="px-8 py-10 border-b border-border">
+                <section class="px-6 sm:px-8 py-10 border-b border-border">
                     <div class="flex flex-col lg:flex-row gap-8">
                         <div class="lg:w-1/4">
                             <h2 class="font-heading text-2xl font-bold text-secondary mb-4 flex items-center">
@@ -169,7 +154,7 @@
                                                     <div class="font-medium text-dark">Cadastro Estruturado</div>
                                                 </div>
                                             </td>
-                                            <td class="px-6 py-4">Registre devedores, valores de dívida, datas e contatos de forma organizada.</td>
+                                            <td class="px-6 py-4 whitespace-normal">Registre devedores, valores de dívida, datas e contatos de forma organizada.</td>
                                         </tr>
                                         <tr class="hover:bg-background transition-colors">
                                             <td class="px-6 py-4 whitespace-nowrap">
@@ -180,7 +165,7 @@
                                                     <div class="font-medium text-dark">Juros Automatizados</div>
                                                 </div>
                                             </td>
-                                            <td class="px-6 py-4">Defina taxas de juros e o sistema recalcula o saldo devedor em tempo real.</td>
+                                            <td class="px-6 py-4 whitespace-normal">Defina taxas de juros e o sistema recalcula o saldo devedor em tempo real.</td>
                                         </tr>
                                         <tr class="hover:bg-background transition-colors">
                                             <td class="px-6 py-4 whitespace-nowrap">
@@ -191,7 +176,7 @@
                                                     <div class="font-medium text-dark">Histórico de Pagamentos</div>
                                                 </div>
                                             </td>
-                                            <td class="px-6 py-4">Lance pagamentos parciais ou totais e mantenha um histórico preciso de transações.</td>
+                                            <td class="px-6 py-4 whitespace-normal">Lance pagamentos parciais ou totais e mantenha um histórico preciso de transações.</td>
                                         </tr>
                                         <tr class="hover:bg-background transition-colors">
                                             <td class="px-6 py-4 whitespace-nowrap">
@@ -202,7 +187,7 @@
                                                     <div class="font-medium text-dark">Busca Inteligente</div>
                                                 </div>
                                             </td>
-                                            <td class="px-6 py-4">Localize devedores por nome, status ou valor da dívida com filtros avançados.</td>
+                                            <td class="px-6 py-4 whitespace-normal">Localize devedores por nome, status ou valor da dívida com filtros avançados.</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -223,8 +208,7 @@
                     </div>
                 </section>
 
-                <!-- Section 2: Dashboards e Análises -->
-                <section class="px-8 py-10 border-b border-border">
+                <section class="px-6 sm:px-8 py-10 border-b border-border">
                     <div class="flex flex-col lg:flex-row gap-8">
                         <div class="lg:w-1/4">
                             <h2 class="font-heading text-2xl font-bold text-secondary mb-4 flex items-center">
@@ -309,8 +293,7 @@
                     </div>
                 </section>
 
-                <!-- Section 3: Conciliação e Importação -->
-                <section class="px-8 py-10 border-b border-border">
+                <section class="px-6 sm:px-8 py-10 border-b border-border">
                     <div class="flex flex-col lg:flex-row gap-8">
                         <div class="lg:w-1/4">
                             <h2 class="font-heading text-2xl font-bold text-secondary mb-4 flex items-center">
@@ -333,17 +316,17 @@
                                     <tbody class="divide-y divide-border">
                                         <tr class="hover:bg-background transition-colors">
                                             <td class="px-6 py-4 whitespace-nowrap font-medium text-dark">Importação Flexível</td>
-                                            <td class="px-6 py-4">Suporte nativo para arquivos de extrato (.ofx) e planilhas (.csv, .xlsx)</td>
+                                            <td class="px-6 py-4 whitespace-normal">Suporte nativo para arquivos de extrato (.ofx) e planilhas (.csv, .xlsx)</td>
                                             <td class="px-6 py-4"><span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">Economia de tempo</span></td>
                                         </tr>
                                         <tr class="hover:bg-background transition-colors">
                                             <td class="px-6 py-4 whitespace-nowrap font-medium text-dark">Conciliação Automática</td>
-                                            <td class="px-6 py-4">Identificação inteligente de pagamentos e pendências</td>
+                                            <td class="px-6 py-4 whitespace-normal">Identificação inteligente de pagamentos e pendências</td>
                                             <td class="px-6 py-4"><span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">Redução de erros</span></td>
                                         </tr>
                                         <tr class="hover:bg-background transition-colors">
                                             <td class="px-6 py-4 whitespace-nowrap font-medium text-dark">Histórico de Conciliações</td>
-                                            <td class="px-6 py-4">Arquivo de todas as conferências realizadas, com filtros por período</td>
+                                            <td class="px-6 py-4 whitespace-normal">Arquivo de todas as conferências realizadas, com filtros por período</td>
                                             <td class="px-6 py-4"><span class="bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded">Auditoria facilitada</span></td>
                                         </tr>
                                     </tbody>
@@ -351,8 +334,8 @@
                             </div>
                             
                             <div class="mt-8 bg-gradient-to-r from-primary to-secondary p-6 rounded-xl text-white">
-                                <div class="flex flex-col md:flex-row items-center">
-                                    <div class="mb-4 md:mb-0 md:mr-6">
+                                <div class="flex flex-col md:flex-row items-center text-center md:text-left">
+                                    <div class="mb-4 md:mb-0 md:mr-6 flex-shrink-0">
                                         <i class="fas fa-file-export text-4xl"></i>
                                     </div>
                                     <div>
@@ -365,8 +348,7 @@
                     </div>
                 </section>
 
-                <!-- Section 4: Segurança e Controle de Acesso -->
-                <section class="px-8 py-10 border-b border-border">
+                <section class="px-6 sm:px-8 py-10 border-b border-border">
                     <div class="flex flex-col lg:flex-row gap-8">
                         <div class="lg:w-1/4">
                             <h2 class="font-heading text-2xl font-bold text-secondary mb-4 flex items-center">
@@ -419,8 +401,7 @@
                     </div>
                 </section>
 
-                <!-- Section 5: Investimento e Condições -->
-                <section class="px-8 py-10">
+                <section class="px-6 sm:px-8 py-10">
                     <div class="flex flex-col lg:flex-row gap-8">
                         <div class="lg:w-1/4">
                             <h2 class="font-heading text-2xl font-bold text-secondary mb-4 flex items-center">
@@ -443,19 +424,19 @@
                                     </thead>
                                     <tbody class="divide-y divide-border">
                                         <tr class="hover:bg-background transition-colors">
-                                            <td class="px-6 py-4 whitespace-nowrap font-medium text-dark">Taxa de Implantação e Treinamento</td>
+                                            <td class="px-6 py-4 whitespace-normal font-medium text-dark">Taxa de Implantação e Treinamento</td>
                                             <td class="px-6 py-4 whitespace-nowrap text-primary font-bold">R$ 600,00</td>
-                                            <td class="px-6 py-4 whitespace-nowrap">Pagamento único no 1º mês</td>
+                                            <td class="px-6 py-4 whitespace-normal">Pagamento único no 1º mês</td>
                                         </tr>
                                         <tr class="hover:bg-background transition-colors">
-                                            <td class="px-6 py-4 whitespace-nowrap font-medium text-dark">Manutenção e Suporte Mensal</td>
+                                            <td class="px-6 py-4 whitespace-normal font-medium text-dark">Manutenção e Suporte Mensal</td>
                                             <td class="px-6 py-4 whitespace-nowrap text-primary font-bold">R$ 450,00</td>
-                                            <td class="px-6 py-4 whitespace-nowrap">A partir do 2º mês</td>
+                                            <td class="px-6 py-4 whitespace-normal">A partir do 2º mês</td>
                                         </tr>
                                         <tr class="hover:bg-background transition-colors">
-                                            <td class="px-6 py-4 whitespace-nowrap font-medium text-dark">Infraestrutura e Servidores</td>
+                                            <td class="px-6 py-4 whitespace-normal font-medium text-dark">Infraestrutura e Servidores</td>
                                             <td class="px-6 py-4 whitespace-nowrap text-primary font-bold">R$ 100,00</td>
-                                            <td class="px-6 py-4 whitespace-nowrap">Recorrente mensal</td>
+                                            <td class="px-6 py-4 whitespace-normal">Recorrente mensal</td>
                                         </tr>
                                     </tbody>
                                 </table>
